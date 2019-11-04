@@ -1,0 +1,27 @@
+{
+  "Version": "2012-10-17",
+  "Id": "appPermissions",
+  "Statement": [
+    {
+      "Sid": "apigwPermission",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::${account}:role/${apigw_role}"
+      },
+      "Action": "SQS:SendMessage",
+      "Resource": "arn:aws:sqs:${region}:${account}:${sqs_queue}"
+    },
+    {
+      "Sid": "lambdaPermission",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::${account}:role/${lambda_role}"
+      },
+      "Action": [
+        "SQS:DeleteMessage",
+        "SQS:ReceiveMessage"
+      ],
+      "Resource": "arn:aws:sqs:${region}:${account}:${sqs_queue}"
+    }
+  ]
+}

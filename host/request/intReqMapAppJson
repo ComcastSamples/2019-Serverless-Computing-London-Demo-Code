@@ -1,0 +1,3 @@
+Action=SendMessage##
+&MessageBody=$util.urlEncode($input.body)##
+&MessageGroupId=1##

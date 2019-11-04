@@ -1,0 +1,17 @@
+app_version = "0.1.0"
+
+bucket = "yourUniqueBucketName"
+
+vpce = <<EOT
+    [
+        "vpce-anAllowedVpc",
+        "vpce-anotherAllowedVpc"
+    ]
+    EOT
+
+apigw_role = "path/appName-apigw"
+
+lambda_role = "path/appName-lambda"
+
+sqs_queue_base_name = "myqueue.fifo"
+

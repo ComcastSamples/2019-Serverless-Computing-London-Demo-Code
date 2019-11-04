@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Request",
+  "type": "object",
+  "required": [
+    "host-list"
+  ],
+  "anyOf": [
+    {
+      "required": [
+        "update"
+      ]
+    },
+    {
+      "required": [
+        "harden"
+      ]
+    },
+    {
+      "required": [
+        "standard"
+      ]
+    },
+    {
+      "required": [
+        "job_templates"
+      ]
+    }
+  ],
+  "properties": {
+    "host-list": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/host"
+      }
+    },
+    "notify": {
+      "type": "object"
+    },
+    "harden": {
+      "type": "boolean"
+    },
+    "standard": {
+      "type": "boolean"
+    },
+    "release": {
+      "type": "string"
+    },
+    "standard_release": {
+      "type": "string"
+    },
+    "update": {
+      "type": "boolean"
+    },
+    "job_templates": {
+      "type": "array"
+    },
+    "repo": {
+      "type": "number"
+    },
+    "tags": {
+      "type": "array"
+    },
+    "extra_vars": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "host": {
+      "type": "object",
+      "required": [
+        "fqdn"
+      ],
+      "properties": {
+        "fqdn": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
